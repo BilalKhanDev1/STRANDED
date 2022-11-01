@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.51587754, g: 0.74956495, b: 0.8113208, a: 0.392}
+  m_Color: {r: 0.51587754, g: 0.74956495, b: 0.8113208, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1888,6 +1888,7 @@ Transform:
   - {fileID: 1625574638}
   - {fileID: 661950757}
   - {fileID: 888427912}
+  - {fileID: 705507995}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2101,7 +2102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 744673240}
+  m_Father: {fileID: 605661149}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &744673239
@@ -2135,7 +2136,6 @@ Transform:
   - {fileID: 4958248217111813915}
   - {fileID: 1802485473688669039}
   - {fileID: 7066657967262257574}
-  - {fileID: 705507995}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.51587754, g: 0.74956495, b: 0.8113208, a: 0.392}
+  m_Color: {r: 0.51587754, g: 0.74956495, b: 0.8113208, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5182,18 +5182,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1802485473688669032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802485473688669038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b1a4b9e3fea014ab3297a2e17d6c34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!225 &1802485473688669034
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5236,9 +5224,9 @@ GameObject:
   - component: {fileID: 1802485473688669028}
   - component: {fileID: 1802485473688669035}
   - component: {fileID: 1802485473688669034}
-  - component: {fileID: 1802485473688669032}
+  - component: {fileID: 1802485473688669040}
   m_Layer: 5
-  m_Name: '[CANVAS] Inventory 1'
+  m_Name: '[CANVAS] Inventory'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5265,6 +5253,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1802485473688669040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802485473688669038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0369bc5659fe5e4ead358f54b1a7363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1802485473902835272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5571,7 +5571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.764151, g: 0.7309897, b: 0.7309897, a: 0.392}
+  m_Color: {r: 0.764151, g: 0.7309897, b: 0.7309897, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5725,7 +5725,7 @@ GameObject:
   - component: {fileID: 4958248217111813914}
   - component: {fileID: 4958248217111813918}
   m_Layer: 5
-  m_Name: '[CANVAS] Crafting 1'
+  m_Name: '[CANVAS] Crafting'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6138,7 +6138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.764151, g: 0.7309897, b: 0.7309897, a: 0.392}
+  m_Color: {r: 0.764151, g: 0.7309897, b: 0.7309897, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6372,7 +6372,7 @@ GameObject:
   - component: {fileID: 7066657967262257576}
   - component: {fileID: 7066657967262257577}
   m_Layer: 5
-  m_Name: Canvas [DIALOG]
+  m_Name: '[CANVAS] Dialog'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6921,6 +6921,7 @@ GameObject:
   - component: {fileID: 8665783654837107904}
   - component: {fileID: 8665783654837107905}
   - component: {fileID: 8665783654837107906}
+  - component: {fileID: 8665783654837107909}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -6928,6 +6929,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8665783654837107909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783654837107908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783654653561786}
 --- !u!224 &8665783654842047140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7150,6 +7164,7 @@ GameObject:
   - component: {fileID: 8665783654856283291}
   - component: {fileID: 8665783654856283290}
   - component: {fileID: 8665783654856283289}
+  - component: {fileID: 8665783654856283296}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -7157,6 +7172,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8665783654856283296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783654856283295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655037723617}
 --- !u!1 &8665783654885421792
 GameObject:
   m_ObjectHideFlags: 0
@@ -7456,6 +7484,7 @@ GameObject:
   - component: {fileID: 8665783655085903964}
   - component: {fileID: 8665783655085903965}
   - component: {fileID: 8665783655085903966}
+  - component: {fileID: 8665783655085903968}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -7538,6 +7567,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8665783655085903968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783655085903960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783654975842086}
 --- !u!1 &8665783655139810825
 GameObject:
   m_ObjectHideFlags: 0
@@ -7626,6 +7668,7 @@ GameObject:
   - component: {fileID: 8665783655291824501}
   - component: {fileID: 8665783655291824500}
   - component: {fileID: 8665783655291824503}
+  - component: {fileID: 8665783655291824504}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -7708,6 +7751,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &8665783655291824504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783655291824497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655139810831}
 --- !u!1 &8665783655464559360
 GameObject:
   m_ObjectHideFlags: 0
@@ -7931,6 +7987,7 @@ GameObject:
   - component: {fileID: 8665783655637537916}
   - component: {fileID: 8665783655637537917}
   - component: {fileID: 8665783655637537918}
+  - component: {fileID: 8665783655637537920}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -8013,6 +8070,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8665783655637537920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783655637537912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655464559366}
 --- !u!114 &8665783655679014848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8311,6 +8381,7 @@ GameObject:
   - component: {fileID: 8665783655778721416}
   - component: {fileID: 8665783655778721417}
   - component: {fileID: 8665783655778721418}
+  - component: {fileID: 8665783655778721421}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -8318,6 +8389,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8665783655778721421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783655778721420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655892986354}
 --- !u!114 &8665783655858340024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8405,6 +8489,7 @@ GameObject:
   - component: {fileID: 8665783655858340026}
   - component: {fileID: 8665783655858340027}
   - component: {fileID: 8665783655858340024}
+  - component: {fileID: 8665783655858340031}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -8412,6 +8497,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8665783655858340031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783655858340030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655679014848}
 --- !u!222 &8665783655892986353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8846,6 +8944,7 @@ GameObject:
   - component: {fileID: 8665783656122312463}
   - component: {fileID: 8665783656122312462}
   - component: {fileID: 8665783656122312461}
+  - component: {fileID: 8665783656122312464}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -8928,6 +9027,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8665783656122312459}
   m_CullTransparentMesh: 1
+--- !u!114 &8665783656122312464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783656122312459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783655953518709}
 --- !u!222 &8665783656222956097
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9075,6 +9187,7 @@ GameObject:
   - component: {fileID: 8665783656292068655}
   - component: {fileID: 8665783656292068654}
   - component: {fileID: 8665783656292068653}
+  - component: {fileID: 8665783656292068656}
   m_Layer: 5
   m_Name: Inventory Panel Slot
   m_TagString: Untagged
@@ -9157,6 +9270,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8665783656292068651}
   m_CullTransparentMesh: 1
+--- !u!114 &8665783656292068656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665783656292068651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91db4bd15c00747bfc586d9bb2663e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemIcon: {fileID: 8665783656454560341}
 --- !u!1 &8665783656454560339
 GameObject:
   m_ObjectHideFlags: 0

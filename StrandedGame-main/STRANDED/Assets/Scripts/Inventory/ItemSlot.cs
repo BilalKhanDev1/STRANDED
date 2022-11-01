@@ -20,6 +20,7 @@ public class ItemSlot
     public void Bind(SlotData slotData)
     {
         _slotData = slotData;
+        var item = Resources.Load<Item>("Items/" + _slotData.ItemName);
         //SetItem();
     }
 }
