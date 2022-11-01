@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class GamePersistance : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameData _gameData;
+
+    void Start() => LoadGame();
+
+    void Update() => SaveGame();
+
+    void SaveGame()
     {
-        
+        var data = JsonUtility.ToJson(_gameData);
+        PlayerPrefs.SetString("GameData", data);
+        Debug.Log(data);
+        Debug.Log("Saved");
     }
 
-    // Update is called once per frame
-    void Update()
+    void LoadGame()
     {
-        
+        var data = PlayerPrefs.GetString("GameData");
+        _gameData = JsonUtility.FromJson<GameData>(data);
+        if (_gameData == null)
+            _gameData = new GameData();
     }
 }
