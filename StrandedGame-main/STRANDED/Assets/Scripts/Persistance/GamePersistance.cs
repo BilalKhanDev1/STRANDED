@@ -24,5 +24,7 @@ public class GamePersistance : MonoBehaviour
         _gameData = JsonUtility.FromJson<GameData>(data);
         if (_gameData == null)
             _gameData = new GameData();
+
+        Inventory.Instance.Bind(_gameData.SlotDatas);
     }
 }

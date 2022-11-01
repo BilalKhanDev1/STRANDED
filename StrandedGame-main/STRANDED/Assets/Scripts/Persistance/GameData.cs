@@ -5,4 +5,10 @@ using System.Collections.Generic;
 
 public class GameData
 {
+    public List<SlotData> SlotDatas;
+
+    public GameData()
+    {
+        SlotDatas = new List<SlotData>();
+    }
 }
