@@ -21,7 +21,7 @@ public class ItemSlot
     {
         _slotData = slotData;
         var item = Resources.Load<Item>("Items/" + _slotData.ItemName);
-        //SetItem();
+        SetItem(item);
     }
 }
 
