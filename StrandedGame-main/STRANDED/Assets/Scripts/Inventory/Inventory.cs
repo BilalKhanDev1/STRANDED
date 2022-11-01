@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
     void MoveItemsRight()
     {
         var lastItem = GeneralSlot.Last().Item;
-        for (int i = GeneralSize - 1; i >= 0; i--)
+        for (int i = GeneralSize - 1; i > 0; i--)
         {
             GeneralSlot[i].SetItem(GeneralSlot[i - 1].Item);
         }
