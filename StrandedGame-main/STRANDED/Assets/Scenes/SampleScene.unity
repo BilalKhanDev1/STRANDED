@@ -488,6 +488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &82701592 stripped
@@ -1090,6 +1094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &269914289 stripped
@@ -1224,6 +1232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &281509478 stripped
@@ -2214,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &574677814 stripped
@@ -3131,6 +3147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &901474989 stripped
@@ -3756,6 +3776,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110615418}
+  m_CullTransparentMesh: 1
+--- !u!1 &1182845595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182845596}
+  - component: {fileID: 1182845598}
+  - component: {fileID: 1182845597}
+  m_Layer: 5
+  m_Name: Dragging Icon Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1182845596
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182845595}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1802485475403521982}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -100, y: 60.92621}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1182845597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182845595}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1182845598
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182845595}
   m_CullTransparentMesh: 1
 --- !u!1 &1220813148
 GameObject:
@@ -4525,6 +4621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &1569657087 stripped
@@ -4924,6 +5024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &1727943209 stripped
@@ -5749,6 +5853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!224 &2066328640 stripped
@@ -6230,7 +6338,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1802485475403521982}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -6365,6 +6473,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1802485473902835279}
+  - {fileID: 1182845596}
   - {fileID: 1802485474344146078}
   m_Father: {fileID: 1802485473688669039}
   m_RootOrder: 0
@@ -6499,6 +6608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory Panel Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 5241292276573828527, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: _draggedItemIcon
+      value: 
+      objectReference: {fileID: 1182845597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!114 &4958248216412154516
