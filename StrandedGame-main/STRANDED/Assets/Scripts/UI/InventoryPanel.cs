@@ -3,11 +3,7 @@ using System.Collections;
 
 public class InventoryPanel : MonoBehaviour
 {
-    IEnumerator Start()
-    {
-        yield return null;
-        Bind(Inventory.Instance);
-    }
+    void Start() => Bind(Inventory.Instance);
 
     public void Bind(Inventory inventory)
     {

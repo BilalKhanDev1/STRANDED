@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ItemSlot
 {
+    public event Action Changed;
     public Item Item;
     SlotData _slotData;
 
@@ -13,8 +14,11 @@ public class ItemSlot
 
     public void SetItem(Item item)
     {
+        var previousItem = Item;
         Item = item;
         _slotData.ItemName = item?.name ?? string.Empty;
+        if (previousItem != null)
+            Changed?.Invoke();
     }
 
     public void Bind(SlotData slotData)
