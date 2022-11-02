@@ -6,8 +6,10 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     const int GeneralSize = 9;
+    const int CraftingSize = 9;
 
     public ItemSlot[] GeneralSlot = new ItemSlot[GeneralSize];
+    public ItemSlot[] CraftingSlot = new ItemSlot[CraftingSize];
 
     [SerializeField] Item _debugItem;
 
@@ -18,6 +20,8 @@ public class Inventory : MonoBehaviour
         Instance = this;
         for (int i = 0; i < GeneralSize; i++)
             GeneralSlot[i] = new ItemSlot();
+        for (int i = 0; i < CraftingSize; i++)
+            CraftingSlot[i] = new ItemSlot();
     }
 
     public void AddItem(Item item)
@@ -48,10 +52,23 @@ public class Inventory : MonoBehaviour
             var slotData = slotDatas.FirstOrDefault(t => t.SlotName == "General" + i);
             if (slotData == null)
             {
-                slotData = new SlotData() { SlotName = "General" + i };
+                slotData = new SlotData() {SlotName = "General" + i };
                 slotDatas.Add(slotData);
             }
             slot.Bind(slotData);
         }
+
+        for (int i = 0; i < CraftingSlot.Length; i++)
+        {
+            var slot = CraftingSlot[i];
+            var slotData = slotDatas.FirstOrDefault(t => t.SlotName == "Crafting" + i);
+            if (slotData == null)
+            {
+                slotData = new SlotData() { SlotName = "Crafting" + i };
+                slotDatas.Add(slotData);
+            }
+            slot.Bind(slotData);
+        }
+
     }
 }

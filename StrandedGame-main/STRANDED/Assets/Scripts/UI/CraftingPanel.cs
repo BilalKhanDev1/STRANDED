@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class InventoryPanel : MonoBehaviour
+public class CraftingPanel : MonoBehaviour
 {
     void Start() => Bind(Inventory.Instance);
 
@@ -9,7 +9,7 @@ public class InventoryPanel : MonoBehaviour
         var panelSlots = GetComponentsInChildren<InventoryPanelSlot>();
         for (int i = 0; i < panelSlots.Length; i++)
         {
-            panelSlots[i].Bind(inventory.GeneralSlot[i]);
+            panelSlots[i].Bind(inventory.CraftingSlot[i]);
         }
     }
 }
