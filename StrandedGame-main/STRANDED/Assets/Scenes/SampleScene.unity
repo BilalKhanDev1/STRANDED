@@ -6612,6 +6612,10 @@ PrefabInstance:
       propertyPath: _draggedItemIcon
       value: 
       objectReference: {fileID: 1182845597}
+    - target: {fileID: 5241292276753154776, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8d2a3bea65d2b4fa6bfa7b61b256af, type: 3}
 --- !u!114 &4958248216412154516

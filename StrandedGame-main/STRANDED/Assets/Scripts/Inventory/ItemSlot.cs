@@ -26,6 +26,7 @@ public class ItemSlot
         _slotData = slotData;
         var item = Resources.Load<Item>("Items/" + _slotData.ItemName);
         SetItem(item);
+        Changed?.Invoke();
     }
 
     public void Swap(ItemSlot slotToSwapWith)
@@ -33,6 +34,7 @@ public class ItemSlot
         var itemInOtherSlot = slotToSwapWith.Item;
         slotToSwapWith.SetItem(Item);
         SetItem(itemInOtherSlot);
+        Changed?.Invoke();
     }
 }
 
