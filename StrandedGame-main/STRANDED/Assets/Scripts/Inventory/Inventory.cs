@@ -23,18 +23,34 @@ public class Inventory : MonoBehaviour
             CraftingSlot[i] = new ItemSlot();
     }
 
+    bool AddItemToSlots(Item item, IEnumerable<ItemSlot> slots)
+    {
+        var stackableSlot = slots.FirstOrDefault(t => t.Item == item && t.HasStackSpaceAvailable);
+        if (stackableSlot != null)
+        {
+            stackableSlot.ModifyStack(1);
+            return true;
+        }
+
+        var slot = slots.FirstOrDefault(t => t.IsEmpty);
+        if (slot != null)
+        {
+            slot.SetItem(item);
+            return true;
+        }
+        return false;
+    }
+
     public void AddItem(Item item, InventoryType preferredItemType = InventoryType.General)
     {
         var preferredSlots = preferredItemType == InventoryType.General ? GeneralSlot : CraftingSlot;
         var backupSlots = preferredItemType == InventoryType.General ? CraftingSlot : GeneralSlot;
-        
-        var firstAvailableSlot = preferredSlots.FirstOrDefault(t => t.IsEmpty);
-        if (firstAvailableSlot == null)
-        {
-            firstAvailableSlot = backupSlots.FirstOrDefault(t => t.IsEmpty);
-        }
-        if (firstAvailableSlot != null)
-        firstAvailableSlot.SetItem(item);
+
+        if (AddItemToSlots(item, preferredSlots))
+            return;
+
+        if (AddItemToSlots(item, backupSlots))
+            return;
     }
 
     [ContextMenu(nameof(AddDebugItem))]
