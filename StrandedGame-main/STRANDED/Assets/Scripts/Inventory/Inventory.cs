@@ -10,9 +10,12 @@ public class Inventory : MonoBehaviour
 
     public ItemSlot[] GeneralSlot = new ItemSlot[GeneralSize];
     public ItemSlot[] CraftingSlot = new ItemSlot[CraftingSize];
+    public List<ItemSlot> OverflowSlot = new List<ItemSlot>();
+    
     [SerializeField] Item _debugItem;
 
     public static Inventory Instance { get; private set; }
+    public ItemSlot TopOverflowSlot => OverflowSlot?.FirstOrDefault();
 
     private void Awake()
     {
@@ -51,6 +54,9 @@ public class Inventory : MonoBehaviour
 
         if (AddItemToSlots(item, backupSlots))
             return;
+
+        if (AddItemToSlots(item, OverflowSlot))
+            return;
     }
 
     [ContextMenu(nameof(AddDebugItem))]
@@ -71,6 +77,12 @@ public class Inventory : MonoBehaviour
     
     public void Bind(List<SlotData> slotDatas)
     {
+        var overflowSlot = new ItemSlot();
+        var overflowSlotData = new SlotData() { SlotName = "Overflow" + OverflowSlot.Count };
+        slotDatas.Add(overflowSlotData);
+        overflowSlot.Bind(overflowSlotData);
+        OverflowSlot.Add(overflowSlot);
+
         for (int i = 0; i < GeneralSlot.Length; i++)
         {
             var slot = GeneralSlot[i];
