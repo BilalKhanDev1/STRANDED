@@ -36,11 +36,13 @@ public class Inventory : MonoBehaviour
     [ContextMenu(nameof(MoveItemsRight))]
     void MoveItemsRight()
     {
-        var lastItem = GeneralSlot.Last().Item;
+        Item lastItem = GeneralSlot.Last().Item;
+
         for (int i = GeneralSize - 1; i > 0; i--)
         {
             GeneralSlot[i].SetItem(GeneralSlot[i - 1].Item);
         }
+        
         GeneralSlot.First().SetItem(lastItem);
     }
     

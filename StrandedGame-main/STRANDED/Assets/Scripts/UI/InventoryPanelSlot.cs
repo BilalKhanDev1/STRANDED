@@ -62,6 +62,7 @@ public class InventoryPanelSlot : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (_itemSlot.IsEmpty == false && Focused != null)
             _itemSlot.Swap(Focused._itemSlot);
+        
         _itemIcon.color = Color.white;
         _draggedItemIcon.sprite = null;
         _draggedItemIcon.enabled = false;

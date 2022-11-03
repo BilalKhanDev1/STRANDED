@@ -17,7 +17,7 @@ public class ItemSlot
         var previousItem = Item;
         Item = item;
         _slotData.ItemName = item?.name ?? string.Empty;
-        if (previousItem != null)
+        if (previousItem != Item)
             Changed?.Invoke();
     }
 
