@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -119,6 +120,59 @@ public class Inventory : MonoBehaviour
     {
         foreach (var slot in CraftingSlot)
             slot.RemoveItem();
+    }
+
+    public void RemoveITemFromSlot(ItemSlot itemSlot)
+    {
+        itemSlot.RemoveItem();
+        if (itemSlot == TopOverflowSlot)
+        {
+            MoveOverFlowItemsUp();
+        }
+    }
+
+    void MoveOverFlowItemsUp()
+    {
+        for (int i = 0; i < OverflowSlot.Count - 1; i++)
+        {
+            var item = OverflowSlot[i + 1].Item;
+            OverflowSlot[i].SetItem(item);
+        }
+        OverflowSlot.Last().RemoveItem();
+    }
+
+    public void Swap(ItemSlot sourceSlot, ItemSlot targetSlot)
+    {
+        if (targetSlot == TopOverflowSlot)
+        {
+            return;
+        }
+        else if (sourceSlot == TopOverflowSlot)
+        {
+            MoveItemFromOverflowSlot(targetSlot);
+        }
+        else if (targetSlot != null && targetSlot.IsEmpty && Input.GetKey(KeyCode.LeftShift))
+        {
+
+            targetSlot.SetItem(sourceSlot.Item) ;
+            sourceSlot.ModifyStack(-1);
+        }
+        else if (targetSlot != null && targetSlot.Item == sourceSlot.Item && targetSlot.HasStackSpaceAvailable)
+        {
+            int numberToMove = Mathf.Min(targetSlot.AvailableStackSpace, sourceSlot.StackCount);
+            if (Input.GetKey(KeyCode.LeftShift) && numberToMove > 1)
+                numberToMove = 1;
+            targetSlot.ModifyStack(numberToMove);
+            sourceSlot.ModifyStack(-numberToMove);
+        }
+        else
+        sourceSlot.Swap(targetSlot);
+    }
+
+    void MoveItemFromOverflowSlot(ItemSlot focusedItemSlot)
+    {
+        focusedItemSlot.SetItem(TopOverflowSlot.Item);
+        MoveOverFlowItemsUp();
     }
 }
 

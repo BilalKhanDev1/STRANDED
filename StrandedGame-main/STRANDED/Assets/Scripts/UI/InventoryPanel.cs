@@ -10,12 +10,15 @@ public class InventoryPanel : MonoBehaviour
     public void Bind(Inventory inventory)
     {
         var panelSlots = GetComponentsInChildren<InventoryPanelSlot>()
-        .Where(t => t != _overflowSlot).ToArray();
+            .Where(t => t != _overflowSlot)
+            .ToArray();
+
         for (int i = 0; i < panelSlots.Length; i++)
         {
             panelSlots[i].Bind(inventory.GeneralSlot[i]);
         }
 
-        _overflowSlot.Bind(inventory.TopOverflowSlot);
+        if (inventory.TopOverflowSlot == null) { Debug.LogError("TopOverflowSlot is null"); }
+        else { _overflowSlot.Bind(inventory.TopOverflowSlot); }
     }
 }

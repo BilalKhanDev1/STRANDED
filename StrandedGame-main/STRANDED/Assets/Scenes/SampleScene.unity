@@ -2336,8 +2336,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661950753}
-  m_LocalRotation: {x: -0.20493379, y: 0.34426636, z: -0.07727726, w: -0.9129683}
-  m_LocalPosition: {x: 45.556854, y: 6.8408527, z: 49.97}
+  m_LocalRotation: {x: 0.085915595, y: 0.0083703315, z: -0.0007091959, w: 0.9962671}
+  m_LocalPosition: {x: 36.185307, y: 1.789, z: 36.617092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3519,6 +3519,8 @@ MonoBehaviour:
   - Item: {fileID: 0}
   - Item: {fileID: 0}
   - Item: {fileID: 0}
+  - Item: {fileID: 0}
+  OverflowSlot:
   - Item: {fileID: 0}
   _debugItem: {fileID: 11400000, guid: 717b785173323d64886671dee6928192, type: 2}
 --- !u!4 &1024614721
