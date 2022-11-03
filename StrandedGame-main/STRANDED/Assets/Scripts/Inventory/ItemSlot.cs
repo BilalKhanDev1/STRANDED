@@ -16,15 +16,12 @@ public class ItemSlot
 
     public int StackCount => _slotData.StackCount;
 
-    public void SetItem(Item item)
+    public void SetItem(Item item, int stackCount = 1)
     {
-        var previousItem = Item;
         Item = item;
         _slotData.ItemName = item?.name ?? string.Empty;
-        _slotData.StackCount = 1;
-        
-        if (previousItem != Item)
-            Changed?.Invoke();
+        _slotData.StackCount = stackCount;
+        Changed?.Invoke();
     }
 
     public void Bind(SlotData slotData)
@@ -38,8 +35,9 @@ public class ItemSlot
     public void Swap(ItemSlot slotToSwapWith)
     {
         var itemInOtherSlot = slotToSwapWith.Item;
-        slotToSwapWith.SetItem(Item);
-        SetItem(itemInOtherSlot);
+        int stackCountInOtherSlot = slotToSwapWith.StackCount;
+        slotToSwapWith.SetItem(Item, StackCount);
+        SetItem(itemInOtherSlot, stackCountInOtherSlot);
     }
 
     public void ModifyStack(int amount)
