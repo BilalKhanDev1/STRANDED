@@ -13,7 +13,7 @@ public class CraftingManager : MonoBehaviour
                 Inventory.Instance.ClearCraftingSlots();
 
                 foreach (var reward in recipe.Rewards)
-                    Inventory.Instance.AddItem(reward);
+                    Inventory.Instance.AddItem(reward, InventoryType.Crafting);
                     return;
             }
         }

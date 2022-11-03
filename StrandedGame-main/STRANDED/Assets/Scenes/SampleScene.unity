@@ -2202,8 +2202,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661950753}
-  m_LocalRotation: {x: 0.085915595, y: 0.0083703315, z: -0.0007091959, w: 0.9962671}
-  m_LocalPosition: {x: 36.185307, y: 1.789, z: 36.617092}
+  m_LocalRotation: {x: -0.20493379, y: 0.34426636, z: -0.07727726, w: -0.9129683}
+  m_LocalPosition: {x: 45.556854, y: 6.8408527, z: 49.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2353,6 +2353,7 @@ GameObject:
   - component: {fileID: 779279321}
   - component: {fileID: 779279320}
   - component: {fileID: 779279323}
+  - component: {fileID: 779279324}
   m_Layer: 0
   m_Name: '[CANVAS] Item Tooltip'
   m_TagString: Untagged
@@ -2457,6 +2458,18 @@ MonoBehaviour:
   _name: {fileID: 623952927}
   _description: {fileID: 387983442}
   _icon: {fileID: 1332056284}
+--- !u!225 &779279324
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779279318}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &838720433
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,9 +23,17 @@ public class Inventory : MonoBehaviour
             CraftingSlot[i] = new ItemSlot();
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, InventoryType preferredItemType = InventoryType.General)
     {
-        var firstAvailableSlot = GeneralSlot.FirstOrDefault(t => t.IsEmpty);
+        var preferredSlots = preferredItemType == InventoryType.General ? GeneralSlot : CraftingSlot;
+        var backupSlots = preferredItemType == InventoryType.General ? CraftingSlot : GeneralSlot;
+        
+        var firstAvailableSlot = preferredSlots.FirstOrDefault(t => t.IsEmpty);
+        if (firstAvailableSlot == null)
+        {
+            firstAvailableSlot = backupSlots.FirstOrDefault(t => t.IsEmpty);
+        }
+        if (firstAvailableSlot != null)
         firstAvailableSlot.SetItem(item);
     }
 
@@ -77,4 +85,10 @@ public class Inventory : MonoBehaviour
         foreach (var slot in CraftingSlot)
             slot.RemoveItem();
     }
+}
+
+public enum InventoryType
+{
+    General,
+    Crafting
 }
