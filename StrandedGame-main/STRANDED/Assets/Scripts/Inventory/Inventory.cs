@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour
 
     public ItemSlot[] GeneralSlot = new ItemSlot[GeneralSize];
     public ItemSlot[] CraftingSlot = new ItemSlot[CraftingSize];
-
     [SerializeField] Item _debugItem;
 
     public static Inventory Instance { get; private set; }
@@ -71,6 +70,11 @@ public class Inventory : MonoBehaviour
             }
             slot.Bind(slotData);
         }
-
+    }
+    
+    public void ClearCraftingSlots()
+    {
+        foreach (var slot in CraftingSlot)
+            slot.RemoveItem();
     }
 }

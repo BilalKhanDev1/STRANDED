@@ -14,7 +14,6 @@ public class GamePersistance : MonoBehaviour
     {
         var data = JsonUtility.ToJson(_gameData);
         PlayerPrefs.SetString("GameData", data);
-        Debug.Log(data);
         Debug.Log("Saved");
     }
 
