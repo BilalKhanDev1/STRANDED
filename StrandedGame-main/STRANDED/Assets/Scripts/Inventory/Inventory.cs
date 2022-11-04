@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -56,31 +54,11 @@ public class Inventory : MonoBehaviour
 
         if (AddItemToSlots(item, backupSlots))
             return;
-
-        if (AddItemToSlots(item, OverflowSlot))
-            CreateOverflowSlot();
     }
 
-    [ContextMenu(nameof(AddDebugItem))]
-    void AddDebugItem() => AddItem(_debugItem);
-
-    [ContextMenu(nameof(MoveItemsRight))]
-    void MoveItemsRight()
-    {
-        Item lastItem = GeneralSlot.Last().Item;
-
-        for (int i = GeneralSize - 1; i > 0; i--)
-        {
-            GeneralSlot[i].SetItem(GeneralSlot[i - 1].Item);
-        }
-        
-        GeneralSlot.First().SetItem(lastItem);
-    }
-    
     public void Bind(List<SlotData> slotDatas)
     {
         _slotDatas = slotDatas;
-        CreateOverflowSlot();
 
         for (int i = 0; i < GeneralSlot.Length; i++)
         {
@@ -107,38 +85,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void CreateOverflowSlot()
-    {
-        var overflowSlot = new ItemSlot();
-        var overflowSlotData = new SlotData() { SlotName = "Overflow" + OverflowSlot.Count };
-        _slotDatas.Add(overflowSlotData);
-        overflowSlot.Bind(overflowSlotData);
-        OverflowSlot.Add(overflowSlot);
-    }
-
     public void ClearCraftingSlots()
     {
         foreach (var slot in CraftingSlot)
             slot.RemoveItem();
     }
 
-    public void RemoveITemFromSlot(ItemSlot itemSlot)
+    public void RemoveItemFromSlot(ItemSlot itemSlot)
     {
         itemSlot.RemoveItem();
-        if (itemSlot == TopOverflowSlot)
-        {
-            MoveOverFlowItemsUp();
-        }
-    }
-
-    void MoveOverFlowItemsUp()
-    {
-        for (int i = 0; i < OverflowSlot.Count - 1; i++)
-        {
-            var item = OverflowSlot[i + 1].Item;
-            OverflowSlot[i].SetItem(item);
-        }
-        OverflowSlot.Last().RemoveItem();
     }
 
     public void Swap(ItemSlot sourceSlot, ItemSlot targetSlot)
@@ -172,7 +127,6 @@ public class Inventory : MonoBehaviour
     void MoveItemFromOverflowSlot(ItemSlot focusedItemSlot)
     {
         focusedItemSlot.SetItem(TopOverflowSlot.Item);
-        MoveOverFlowItemsUp();
     }
 }
 

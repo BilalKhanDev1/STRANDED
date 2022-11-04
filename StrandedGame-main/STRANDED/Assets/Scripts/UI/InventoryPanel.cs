@@ -3,15 +3,11 @@ using UnityEngine;
 
 public class InventoryPanel : MonoBehaviour
 {
-    [SerializeField] InventoryPanelSlot _overflowSlot;
-
     void Start() => Bind(Inventory.Instance);
 
     public void Bind(Inventory inventory)
     {
-        var panelSlots = GetComponentsInChildren<InventoryPanelSlot>()
-            .Where(t => t != _overflowSlot)
-            .ToArray();
+        var panelSlots = GetComponentsInChildren<InventoryPanelSlot>();
 
         for (int i = 0; i < panelSlots.Length; i++)
         {
@@ -19,6 +15,5 @@ public class InventoryPanel : MonoBehaviour
         }
 
         if (inventory.TopOverflowSlot == null) { Debug.LogError("TopOverflowSlot is null"); }
-        else { _overflowSlot.Bind(inventory.TopOverflowSlot); }
     }
 }
