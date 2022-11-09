@@ -32,7 +32,7 @@ public class ItemTooltipPanel : MonoBehaviour, IPointerClickHandler
     public void ShowItem(ItemSlot itemSlot)
     {
         _itemSlot = itemSlot;
-        var item = itemSlot.Item;
+        Item item = itemSlot.Item;
         if (item == null)
         {
             Toggle(false);
