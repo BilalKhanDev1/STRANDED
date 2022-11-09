@@ -15,26 +15,34 @@ public class PlacementManager : MonoBehaviour
     {
         if (itemSlot == null || itemSlot.Item == null || itemSlot.Item.PlaceablePrefab == null)
         {
-            Debug.Log($"unable to place slot item (something's null)");
+            return;
         }
         _itemSlot = itemSlot;
-        Debug.Log($"Started placing item {_itemSlot.Item}");
 
         _placeable = Instantiate(_itemSlot.Item.PlaceablePrefab);
         _placeable.transform.SetParent(transform);
     }
 
-    private void Update()
+    void Update()
     {
-        if (_placeable == null) { return; }
+        if (_placeable == null) return;
+
+        var rotation = -Input.mouseScrollDelta.y * Time.deltaTime * _rotateRate;
+        _placeable.transform.Rotate(0, rotation, 0);
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out var hitInfo, float.MaxValue, _layerMask, QueryTriggerInteraction.Ignore))
         {
             _placeable.transform.position = hitInfo.point;
+            if (Input.GetMouseButton(0))
+                FinishPlacement();
         }
+    }
 
-        var rotation = -Input.mouseScrollDelta.y * Time.deltaTime * _rotateRate;
-        _placeable.transform.Rotate(0, rotation, 0);
+    void FinishPlacement()
+    {
+        _placeable = null;
+        _itemSlot.RemoveItem();
+        _itemSlot = null;
     }
 }

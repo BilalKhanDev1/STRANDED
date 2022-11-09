@@ -2250,7 +2250,7 @@ GameObject:
   - component: {fileID: 661950754}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4485,11 +4485,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f6d5797327b73429f15f9543db44b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemSlot:
-    Item: {fileID: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
+  _rotateRate: 1000
+  _itemSlot:
+    Item: {fileID: 0}
 --- !u!4 &1574453973
 Transform:
   m_ObjectHideFlags: 0
