@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class ItemTooltipPanel : MonoBehaviour, IPointerClickHandler
 {
@@ -13,16 +14,25 @@ public class ItemTooltipPanel : MonoBehaviour, IPointerClickHandler
     [SerializeField] Button _placeButton;
 
     CanvasGroup _canvasGroup;
+    ItemSlot _itemSlot;
 
     void Awake()
     {
         Instance = this;
         _canvasGroup = GetComponent<CanvasGroup>();
         Toggle(false);
+        _placeButton.onClick.AddListener(TryPlace);
     }
 
-    public void ShowItem(Item item)
+    void TryPlace()
     {
+        PlacementManager.Instance.BeginPlacement(_itemSlot);
+    }
+
+    public void ShowItem(ItemSlot itemSlot)
+    {
+        _itemSlot = itemSlot;
+        var item = itemSlot.Item;
         if (item == null)
         {
             Toggle(false);

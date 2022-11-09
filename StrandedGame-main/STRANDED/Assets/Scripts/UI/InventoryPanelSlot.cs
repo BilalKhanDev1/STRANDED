@@ -89,6 +89,6 @@ public class InventoryPanelSlot : MonoBehaviour,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ItemTooltipPanel.Instance.ShowItem(_itemSlot.Item); 
+        ItemTooltipPanel.Instance.ShowItem(_itemSlot); 
     }
 }
