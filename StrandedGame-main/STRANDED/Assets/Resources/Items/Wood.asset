@@ -15,3 +15,4 @@ MonoBehaviour:
   Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Description: wood wood
   MaxStackSize: 5
+  PlaceablePrefab: {fileID: 0}
