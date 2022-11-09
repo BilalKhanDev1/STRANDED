@@ -1,11 +1,15 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlacementManager : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] float _rotateRate = 1000f;
+    List<PlaceableData> _placeableDatas;
+    [SerializeField] List<GameObject> _allPlaceables;
 
-    public ItemSlot _itemSlot;
+    ItemSlot _itemSlot;
     private GameObject _placeable;
     public static PlacementManager Instance { get; private set; }
 
@@ -41,8 +45,28 @@ public class PlacementManager : MonoBehaviour
 
     void FinishPlacement()
     {
+        _placeableDatas.Add(new PlaceableData()
+        {
+            PlaceablePrefab = _itemSlot.Item.PlaceablePrefab.name,
+            Position = _placeable.transform.position,
+            Rotation = _placeable.transform.rotation
+        }); 
+        
         _placeable = null;
         _itemSlot.RemoveItem();
         _itemSlot = null;
+    }
+
+    public void Bind(List<PlaceableData> placeableDatas)
+    {
+        _placeableDatas = placeableDatas;
+
+        foreach (var placeableData in _placeableDatas)
+        {
+            var prefab = _allPlaceables.FirstOrDefault(t => t.name == placeableData.PlaceablePrefab);
+            
+            if (prefab != null) 
+                Instantiate(prefab, placeableData.Position, placeableData.Rotation);
+        }
     }
 }

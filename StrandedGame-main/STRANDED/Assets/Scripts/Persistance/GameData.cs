@@ -6,9 +6,11 @@ using System.Collections.Generic;
 public class GameData
 {
     public List<SlotData> SlotDatas;
+    public List<PlaceableData> PlaceableDatas;
 
     public GameData()
     {
         SlotDatas = new List<SlotData>();
+        PlaceableDatas = new List<PlaceableData>();
     }
 }

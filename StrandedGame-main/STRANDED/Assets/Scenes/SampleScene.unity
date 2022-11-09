@@ -2347,8 +2347,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661950753}
-  m_LocalRotation: {x: -0.20493379, y: 0.34426636, z: -0.07727726, w: -0.9129683}
-  m_LocalPosition: {x: 45.556854, y: 6.8408527, z: 49.97}
+  m_LocalRotation: {x: 0.085915595, y: 0.0083703315, z: -0.0007091959, w: 0.9962671}
+  m_LocalPosition: {x: 36.185307, y: 1.789, z: 36.617092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4094,6 +4094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameData:
     SlotDatas: []
+    PlaceableDatas: []
 --- !u!4 &1423594120
 Transform:
   m_ObjectHideFlags: 0
@@ -4489,8 +4490,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _rotateRate: 1000
-  _itemSlot:
-    Item: {fileID: 0}
+  _allPlaceables:
+  - {fileID: 7983518168581286432, guid: 8e57547ba649220479966a3314bd5902, type: 3}
 --- !u!4 &1574453973
 Transform:
   m_ObjectHideFlags: 0
