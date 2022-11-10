@@ -7,10 +7,10 @@ public class PlacementManager : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] float _rotateRate = 1000f;
     List<PlaceableData> _placeableDatas;
-    [SerializeField] List<GameObject> _allPlaceables;
+    [SerializeField] List<Placeable> _allPlaceables;
 
     ItemSlot _itemSlot;
-    private GameObject _placeable;
+    Placeable _placeable;
     public static PlacementManager Instance { get; private set; }
 
     private void Awake() => Instance = this;
@@ -50,8 +50,9 @@ public class PlacementManager : MonoBehaviour
             PlaceablePrefab = _itemSlot.Item.PlaceablePrefab.name,
             Position = _placeable.transform.position,
             Rotation = _placeable.transform.rotation
-        }); 
-        
+        });
+
+        _placeable.Place();
         _placeable = null;
         _itemSlot.RemoveItem();
         _itemSlot = null;
@@ -65,8 +66,12 @@ public class PlacementManager : MonoBehaviour
         {
             var prefab = _allPlaceables.FirstOrDefault(t => t.name == placeableData.PlaceablePrefab);
             
-            if (prefab != null) 
-                Instantiate(prefab, placeableData.Position, placeableData.Rotation);
+            if (prefab != null)
+            {
+                var placeable = Instantiate(prefab, placeableData.Position, placeableData.Rotation);
+                if (placeable != null)
+                    placeable.Place();
+            }
         }
     }
 }

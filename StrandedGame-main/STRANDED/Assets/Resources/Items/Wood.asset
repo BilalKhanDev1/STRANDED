@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   Description: wood wood
-  MaxStackSize: 5
-  PlaceablePrefab: {fileID: 7983518168581286432, guid: 8e57547ba649220479966a3314bd5902, type: 3}
+  MaxStackSize: 0
+  PlaceablePrefab: {fileID: -8840021862807466640, guid: de677f64a8b77a1498cbf0cc99069ced, type: 3}
