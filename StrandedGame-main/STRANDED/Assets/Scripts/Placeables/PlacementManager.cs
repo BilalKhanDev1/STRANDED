@@ -17,10 +17,6 @@ public class PlacementManager : MonoBehaviour
 
     public void BeginPlacement(ItemSlot itemSlot)
     {
-        if (itemSlot == null || itemSlot.Item == null || itemSlot.Item.PlaceablePrefab == null)
-        {
-            return;
-        }
         _itemSlot = itemSlot;
 
         _placeable = Instantiate(_itemSlot.Item.PlaceablePrefab);
