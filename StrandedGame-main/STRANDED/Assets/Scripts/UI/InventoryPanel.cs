@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class InventoryPanel : MonoBehaviour
+public class InventoryPanel : ToggleablePanel
 {
     void Start() => Bind(Inventory.Instance);
 
@@ -13,7 +13,5 @@ public class InventoryPanel : MonoBehaviour
         {
             panelSlots[i].Bind(inventory.GeneralSlot[i]);
         }
-
-        if (inventory.TopOverflowSlot == null) { Debug.LogError("TopOverflowSlot is null"); }
     }
 }

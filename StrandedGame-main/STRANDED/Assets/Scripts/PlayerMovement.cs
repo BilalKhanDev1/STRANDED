@@ -14,14 +14,19 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (ToggleablePanel.AnyVisible)
+            return;
+
         transform.Rotate(0, _mouseMovement * Time.deltaTime * _turnSpeed, 0);
 
-        _mouseMovement = 0f;
+        _mouseMovement = 0;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.LeftShift))
+        {
             vertical *= 2f;
+        }
 
         var velocity = new Vector3(horizontal, 0, vertical);
         velocity *= _moveSpeed * Time.fixedDeltaTime;
