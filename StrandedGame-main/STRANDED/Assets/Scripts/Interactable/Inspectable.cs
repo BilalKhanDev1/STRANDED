@@ -6,18 +6,26 @@ using UnityEngine.Events;
 
 public class Inspectable : MonoBehaviour
 {
-    [SerializeField] float _timetoInspect = 3f;
-    [SerializeField] UnityEvent OnInspectionCompleted;
-    float _timeInspected;
 
-    static HashSet<Inspectable> _inspectablesInRange = new HashSet<Inspectable>();
-
+    private static HashSet<Inspectable> _inspectablesInRange = new HashSet<Inspectable>();
     public static IReadOnlyCollection<Inspectable> InspectablesInRange => _inspectablesInRange;
+
     public static event Action<bool> InspectablesInRangeChanged;
 
-    public bool WasFullyInspected { get; private set; }
+    [SerializeField] float _timeToInspect = 3f;
+    [SerializeField] UnityEvent OnInspectionCompleted;
+    InspectableData _data;
 
-    public float InspectionProgress => _timeInspected / _timetoInspect;
+    public bool WasFullyInspected => InspectionProgress >= 1;
+    public float InspectionProgress => _data.TimeInspected / _timeToInspect;
+
+
+    public void Bind(InspectableData inspectableData)
+    {
+        _data = inspectableData;
+        if (_data.TimeInspected >= _timeToInspect)
+            CompleteInspection();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -32,21 +40,20 @@ public class Inspectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-             if (_inspectablesInRange.Remove(this));
-            InspectablesInRangeChanged?.Invoke(_inspectablesInRange.Any());
+            if (_inspectablesInRange.Remove(this))
+                InspectablesInRangeChanged?.Invoke(_inspectablesInRange.Any());
         }
     }
 
     public void Inspect()
     {
-        _timeInspected += Time.deltaTime;
-        if (_timeInspected >= _timetoInspect)
+        _data.TimeInspected += Time.deltaTime;
+        if (_data.TimeInspected >= _timeToInspect)
             CompleteInspection();
     }
 
     void CompleteInspection()
     {
-        WasFullyInspected = true;
         _inspectablesInRange.Remove(this);
         InspectablesInRangeChanged?.Invoke(_inspectablesInRange.Any());
         OnInspectionCompleted?.Invoke();

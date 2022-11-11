@@ -14,7 +14,6 @@ public class GamePersistance : MonoBehaviour
     {
         var data = JsonUtility.ToJson(_gameData);
         PlayerPrefs.SetString("GameData", data);
-        Debug.Log("Saved");
     }
 
     void LoadGame()
@@ -26,5 +25,6 @@ public class GamePersistance : MonoBehaviour
 
         Inventory.Instance.Bind(_gameData.SlotDatas);
         PlacementManager.Instance.Bind(_gameData.PlaceableDatas);
+        InspectionManager.Bind(_gameData.InspectableDatas);
     }
 }
