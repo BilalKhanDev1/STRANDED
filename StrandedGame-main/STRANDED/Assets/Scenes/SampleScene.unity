@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 21344652}
   - component: {fileID: 21344651}
   m_Layer: 0
-  m_Name: '[CANVAS] Inspection'
+  m_Name: '[CANVAS] Interaction'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hintText: {fileID: 147140634}
-  _completedInspectionText: {fileID: 552613942}
+  _completedInteractionText: {fileID: 552613942}
   _progressBarFilledImage: {fileID: 2041593379}
   _progressBar: {fileID: 495467974}
 --- !u!114 &21344652
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 318898722}
   - component: {fileID: 318898721}
   m_Layer: 0
-  m_Name: INSPECTION
+  m_Name: INTERACT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1695,7 +1695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &495467975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2895,8 +2895,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661950753}
-  m_LocalRotation: {x: -0.20493379, y: 0.34426636, z: -0.07727726, w: -0.9129683}
-  m_LocalPosition: {x: 45.556854, y: 6.8408527, z: 49.97}
+  m_LocalRotation: {x: 0.085915595, y: 0.0083703315, z: -0.0007091959, w: 0.9962671}
+  m_LocalPosition: {x: 36.185307, y: 1.789, z: 36.617092}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4644,7 +4644,7 @@ MonoBehaviour:
   _gameData:
     SlotDatas: []
     PlaceableDatas: []
-    InspectableDatas: []
+    InteractableDatas: []
 --- !u!4 &1423594120
 Transform:
   m_ObjectHideFlags: 0
@@ -6336,9 +6336,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c045da2868f1a13419c4c5b68b959ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeToInspect: 3
-  _completedInspectionText: You collected wood!
-  OnInspectionCompleted:
+  _timeToInteract: 3
+  _completedInteractionText: 
+  OnInteractionCompleted:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &2049743289

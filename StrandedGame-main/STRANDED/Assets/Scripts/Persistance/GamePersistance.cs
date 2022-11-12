@@ -25,6 +25,6 @@ public class GamePersistance : MonoBehaviour
 
         Inventory.Instance.Bind(_gameData.SlotDatas);
         PlacementManager.Instance.Bind(_gameData.PlaceableDatas);
-        InspectionManager.Bind(_gameData.InspectableDatas);
+        InteractionManager.Bind(_gameData.InteractableDatas);
     }
 }

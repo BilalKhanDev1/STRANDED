@@ -7,12 +7,12 @@ public class GameData
 {
     public List<SlotData> SlotDatas;
     public List<PlaceableData> PlaceableDatas;
-    public List<InspectableData> InspectableDatas;
+    public List<InteractableData> InteractableDatas;
 
     public GameData()
     {
         SlotDatas = new List<SlotData>();
         PlaceableDatas = new List<PlaceableData>();
-        InspectableDatas = new List<InspectableData>();
+        InteractableDatas = new List<InteractableData>();
     }
 }
