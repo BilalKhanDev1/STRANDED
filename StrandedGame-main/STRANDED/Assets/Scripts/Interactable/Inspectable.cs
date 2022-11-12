@@ -11,20 +11,20 @@ public class Inspectable : MonoBehaviour
     public static IReadOnlyCollection<Inspectable> InspectablesInRange => _inspectablesInRange;
 
     public static event Action<bool> InspectablesInRangeChanged;
+    public static event Action<Inspectable, string> AnyInspectionComplete;
 
     [SerializeField] float _timeToInspect = 3f;
+    [SerializeField, TextArea] string _completedInspectionText;
     [SerializeField] UnityEvent OnInspectionCompleted;
+
     InspectableData _data;
-
     public bool WasFullyInspected => InspectionProgress >= 1;
-    public float InspectionProgress => _data.TimeInspected / _timeToInspect;
-
+    public float InspectionProgress => (_data?.TimeInspected ?? 0f) / _timeToInspect;
 
     public void Bind(InspectableData inspectableData)
     {
         _data = inspectableData;
-        if (_data.TimeInspected >= _timeToInspect)
-            CompleteInspection();
+        if (WasFullyInspected) { RestoreInspectionState(); }
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,8 +47,11 @@ public class Inspectable : MonoBehaviour
 
     public void Inspect()
     {
+        if (WasFullyInspected)
+            return;
+
         _data.TimeInspected += Time.deltaTime;
-        if (_data.TimeInspected >= _timeToInspect)
+        if (WasFullyInspected) 
             CompleteInspection();
     }
 
@@ -57,5 +60,8 @@ public class Inspectable : MonoBehaviour
         _inspectablesInRange.Remove(this);
         InspectablesInRangeChanged?.Invoke(_inspectablesInRange.Any());
         OnInspectionCompleted?.Invoke();
+        AnyInspectionComplete?.Invoke(this, _completedInspectionText);
     }
+
+    public void RestoreInspectionState() => OnInspectionCompleted?.Invoke();
 }
