@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentSlotType: {fileID: 11400000, guid: f6ba2a265580a7a489c18f6dbaa25aaa, type: 2}
   Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  ModelName: Cylinder
   Description: fight enemies!
   MaxStackSize: 0
   PlaceablePrefab: {fileID: 0}

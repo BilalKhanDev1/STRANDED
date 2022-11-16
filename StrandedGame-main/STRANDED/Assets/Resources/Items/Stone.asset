@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EquipmentSlotType: {fileID: 11400000, guid: b8f31d3d4d09a814a8bfffc785f9fd01, type: 2}
   Icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  ModelName: 
   Description: random stone woo
   MaxStackSize: 0
   PlaceablePrefab: {fileID: 0}

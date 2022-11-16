@@ -8,8 +8,5 @@ public class InteractionType : ScriptableObject
     public string BeforeInteraction;
     public string DuringInteraction;
     public string CompletedInteraction;
-    public string FailedInteraction;
     public bool IsDefault;
-
-
 }
