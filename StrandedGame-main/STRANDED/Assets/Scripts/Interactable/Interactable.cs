@@ -21,7 +21,9 @@ public class Interactable : MonoBehaviour
     public bool WasFullyInteracted => InteractionProgress >= 1;
     public float InteractionProgress => (_data?.TimeInteracted ?? 0f) / _timeToInteract;
 
-    public KeyCode Hotkey => _interactionType.Hotkey;
+    public InteractionType InteractionType => _interactionType;
+
+    //public KeyCode Hotkey => _interactionType.Hotkey;
 
     public void Bind(InteractableData inspectableData)
     {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cc02fa4452dc84294089a0c767d765, type: 3}
   m_Name: Inspect
   m_EditorClassIdentifier: 
-  Hotkey: 9
+  Hotkey: 101
   BeforeInteraction: A
   DuringInteraction: B
   CompletedInteraction: C

@@ -5,18 +5,33 @@ using System.Collections;
 
 public class InteractionPanel : MonoBehaviour
 {
-    [SerializeField] TMP_Text _hintText;
+    [SerializeField] TMP_Text _beforeText;
+    [SerializeField] TMP_Text _interactingText;
     [SerializeField] TMP_Text _completedInteractionText;
     [SerializeField] Image _progressBarFilledImage;
     [SerializeField] GameObject _progressBar;
 
     void OnEnable()
     {
-        _hintText.enabled = false;
+        _beforeText.enabled = false;
         _completedInteractionText.enabled = false;
 
-        Interactable.InteractablesInRangeChanged += UpdateHintTextState;
+        //Interactable.InteractablesInRangeChanged += UpdateHintTextState;
+        FindObjectOfType<InteractionManager>().CurrentInteractableChanged += UpdateInteractionText;
         Interactable.AnyInteractionComplete += ShowCompletedInspectionText;
+    }
+
+    void UpdateInteractionText(Interactable interactable)
+    {
+        if (interactable == null)
+            _beforeText.enabled = false;
+        else
+        {
+            var interactionType = interactable.InteractionType;
+            _beforeText.SetText($"{interactionType.Hotkey} - {interactionType.BeforeInteraction}");
+            _beforeText.enabled = true;
+            _interactingText.SetText(interactionType.DuringInteraction);
+        }
     }
 
     void ShowCompletedInspectionText(Interactable inspectable, string message)
@@ -41,7 +56,7 @@ public class InteractionPanel : MonoBehaviour
 
     void OnDisable() => Interactable.InteractablesInRangeChanged -= UpdateHintTextState;
 
-    void UpdateHintTextState(bool enableHint) => _hintText.enabled = enableHint;
+    void UpdateHintTextState(bool enableHint) => _beforeText.enabled = enableHint;
 
     void Update()
     {
