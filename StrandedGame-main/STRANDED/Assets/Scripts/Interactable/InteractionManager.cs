@@ -11,7 +11,6 @@ public class InteractionManager : MonoBehaviour
 
     public event Action<Interactable> CurrentInteractableChanged;   
 
-
     void Awake() => Interactable.InteractablesInRangeChanged += HandleInteractablesInRangeChanged;
 
     void OnDestroy() => Interactable.InteractablesInRangeChanged -= HandleInteractablesInRangeChanged;

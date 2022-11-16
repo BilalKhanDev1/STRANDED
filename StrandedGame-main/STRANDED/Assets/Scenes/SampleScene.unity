@@ -277,7 +277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &21344650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3670,8 +3670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visuals:
   - EquipmentSlotType: {fileID: 11400000, guid: f6ba2a265580a7a489c18f6dbaa25aaa, type: 2}
-    SkinnedMeshRenderers: []
-    DefaultMaterial: {fileID: 0}
     VisualModelRoot: {fileID: 136945825}
 --- !u!1 &847948399
 GameObject:
@@ -7386,18 +7384,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 717b785173323d64886671dee6928192, type: 2}
           m_ObjectArgumentAssemblyTypeName: Item, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2049743287}
-        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

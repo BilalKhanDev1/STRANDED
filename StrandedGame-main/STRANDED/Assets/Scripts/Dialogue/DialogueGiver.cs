@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueGiver : MonoBehaviour
 {
     [SerializeField] TextAsset _dialog;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<PlayerMovement>();
         if (player != null)
@@ -16,4 +14,3 @@ public class DialogueGiver : MonoBehaviour
         }
     }
 }
-

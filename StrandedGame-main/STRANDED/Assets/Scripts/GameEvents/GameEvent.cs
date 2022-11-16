@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,18 +18,13 @@ public class GameEvent : ScriptableObject
     {
         _gameEventListeners.Remove(gameEventListener);
         if (_gameEventListeners.Count == 0)
-        {
             _listenedEvents.Remove(this);
-        }
     }
 
-    [ContextMenu("Invoke")]
     public void Invoke()
     {
         foreach (var gameEventListener in _gameEventListeners)
-        {
             gameEventListener.RaiseEvent();
-        }
     }
 
     public static void RaiseEvent(string eventName)

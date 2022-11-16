@@ -32,7 +32,7 @@ public class CraftingManager : MonoBehaviour
             if (craftingSlots[i].IsEmpty == false)
                 return false;
         }
-
+        
         return true;
     }
 

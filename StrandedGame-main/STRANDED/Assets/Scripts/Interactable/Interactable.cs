@@ -68,7 +68,7 @@ public class Interactable : MonoBehaviour
 
     public void RestoreInteractionState() => OnInteractionCompleted?.Invoke();
 
-    private void OnValidate()
+    void OnValidate()
     {
         if (_interactionType == null)
             _interactionType = Resources.FindObjectsOfTypeAll<InteractionType>().Where(t => t.IsDefault).FirstOrDefault();
