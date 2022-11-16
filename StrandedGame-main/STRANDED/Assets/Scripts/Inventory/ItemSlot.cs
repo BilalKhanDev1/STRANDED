@@ -6,6 +6,13 @@ using UnityEngine;
 [Serializable]
 public class ItemSlot
 {
+    public ItemSlot() { }
+
+    public ItemSlot(EquipmentSlotType equipmentSlotType)
+    {
+        EquipmentSlotType = equipmentSlotType;
+    }
+
     public event Action Changed;
     public Item Item;
     SlotData _slotData;
@@ -17,6 +24,8 @@ public class ItemSlot
     public int StackCount => _slotData.StackCount;
 
     public int AvailableStackSpace => Item != null ? Item.MaxStackSize * _slotData.StackCount : 0;
+    
+    public readonly EquipmentSlotType EquipmentSlotType;
 
     public void SetItem(Item item, int stackCount = 1)
     {
@@ -54,6 +63,17 @@ public class ItemSlot
     public void RemoveItem()
     {
         SetItem(null);
+    }
+
+    public bool CanHold(Item item)
+    {
+        if (item == null)
+            return true;
+
+        if (EquipmentSlotType != null && item.EquipmentSlotType != EquipmentSlotType)
+            return false;
+
+        return true;
     }
 }
 

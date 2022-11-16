@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,21 +10,30 @@ public class Inventory : MonoBehaviour
 
     public ItemSlot[] GeneralSlot = new ItemSlot[GeneralSize];
     public ItemSlot[] CraftingSlot = new ItemSlot[CraftingSize];
-    public List<ItemSlot> OverflowSlot = new List<ItemSlot>();
+    public List<ItemSlot> EquipmentSlots = new List<ItemSlot>();
+
     List<SlotData> _slotDatas;
+    [SerializeField] EquipmentSlotType[] _allEquipmentSlotTypes;
     
     [SerializeField] Item _debugItem;
 
     public static Inventory Instance { get; private set; }
-    public ItemSlot TopOverflowSlot => OverflowSlot?.FirstOrDefault();
 
-    private void Awake()
+    void OnValidate() => _allEquipmentSlotTypes = Extensions.GetAllInstances<EquipmentSlotType>();
+    
+    void Awake()
     {
         Instance = this;
         for (int i = 0; i < GeneralSize; i++)
             GeneralSlot[i] = new ItemSlot();
         for (int i = 0; i < CraftingSize; i++)
             CraftingSlot[i] = new ItemSlot();
+
+        foreach (var slotType in _allEquipmentSlotTypes)
+        {
+            var slot = new ItemSlot(slotType);
+            EquipmentSlots.Add(slot);
+        }
     }
 
     bool AddItemToSlots(Item item, IEnumerable<ItemSlot> slots)
@@ -62,27 +72,26 @@ public class Inventory : MonoBehaviour
     {
         _slotDatas = slotDatas;
 
-        for (int i = 0; i < GeneralSlot.Length; i++)
-        {
-            var slot = GeneralSlot[i];
-            var slotData = slotDatas.FirstOrDefault(t => t.SlotName == "General" + i);
-            if (slotData == null)
-            {
-                slotData = new SlotData() { SlotName = "General" + i };
-                slotDatas.Add(slotData);
-            }
-            slot.Bind(slotData);
-        }
+        BindToSlots(slotDatas, GeneralSlot, "General");
+        BindToSlots(slotDatas, CraftingSlot, "Crafting");
+        BindToSlots(slotDatas, EquipmentSlots, "Equipment");
+    }
 
-        for (int i = 0; i < CraftingSlot.Length; i++)
+    static void BindToSlots(List<SlotData> slotDatas, IEnumerable<ItemSlot> slots, string slotName)
+    {
+        for (var i = 0; i < slots.Count(); i++)
         {
-            var slot = CraftingSlot[i];
-            var slotData = slotDatas.FirstOrDefault(t => t.SlotName == "Crafting" + i);
+            var slot = slots.ElementAt(i);
+
+            string name = slot.EquipmentSlotType != null ? slot.EquipmentSlotType.name : slotName + i;
+            var slotData = slotDatas.FirstOrDefault(t => t.SlotName == name);
+
             if (slotData == null)
             {
-                slotData = new SlotData() { SlotName = "Crafting" + i };
+                slotData = new SlotData() { SlotName = name };
                 slotDatas.Add(slotData);
             }
+
             slot.Bind(slotData);
         }
     }
@@ -100,17 +109,11 @@ public class Inventory : MonoBehaviour
 
     public void Swap(ItemSlot sourceSlot, ItemSlot targetSlot)
     {
-        if (targetSlot == TopOverflowSlot)
-        {
+        if (!sourceSlot.CanHold(targetSlot.Item) || !targetSlot.CanHold(sourceSlot.Item))
             return;
-        }
-        else if (sourceSlot == TopOverflowSlot)
-        {
-            MoveItemFromOverflowSlot(targetSlot);
-        }
-        else if (targetSlot != null && targetSlot.IsEmpty && Input.GetKey(KeyCode.LeftShift))
-        {
 
+        if (targetSlot != null && targetSlot.IsEmpty && Input.GetKey(KeyCode.LeftShift))
+        {
             targetSlot.SetItem(sourceSlot.Item) ;
             sourceSlot.ModifyStack(-1);
         }
@@ -125,10 +128,10 @@ public class Inventory : MonoBehaviour
         else
         sourceSlot.Swap(targetSlot);
     }
-
-    void MoveItemFromOverflowSlot(ItemSlot focusedItemSlot)
+    
+    public ItemSlot GetEquipmentSlot(EquipmentSlotType equipmentSlotType)
     {
-        focusedItemSlot.SetItem(TopOverflowSlot.Item);
+        return EquipmentSlots.FirstOrDefault(t => t.EquipmentSlotType == equipmentSlotType);
     }
 }
 

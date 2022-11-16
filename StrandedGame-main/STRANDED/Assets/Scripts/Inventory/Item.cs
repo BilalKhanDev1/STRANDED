@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
+    public EquipmentSlotType EquipmentSlotType;
     public Sprite Icon;
     public string Description;
     public int MaxStackSize;
