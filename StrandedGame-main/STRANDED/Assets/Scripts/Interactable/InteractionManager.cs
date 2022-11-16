@@ -5,18 +5,30 @@ using UnityEngine;
 public class InteractionManager : MonoBehaviour
 {
     static Interactable _currentInteractable;
-    public static bool Interacting => _currentInteractable != null && _currentInteractable.WasFullyInteracted == false;
+    public static bool Interacting { get; private set; }
     public static float InteractionProgress => _currentInteractable?.InteractionProgress ?? 0f;
+
+
+    void Awake() => Interactable.InteractablesInRangeChanged += HandleInteractablesInRangeChanged;
+
+    void OnDestroy() => Interactable.InteractablesInRangeChanged -= HandleInteractablesInRangeChanged;
+
+    void HandleInteractablesInRangeChanged(bool obj)
+    {
+        var nearest = Interactable.interactablesInRange.OrderBy(t => Vector3.Distance(t.transform.position, transform.position)).FirstOrDefault();
+
+        _currentInteractable = nearest;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            _currentInteractable = Interactable.interactablesInRange.FirstOrDefault();
-
-        if (Input.GetKey(KeyCode.E) && _currentInteractable != null)
+        if (_currentInteractable != null && Input.GetKey(_currentInteractable.Hotkey))
+        {
             _currentInteractable.Interact();
-        else
-            _currentInteractable = null;
+            Interacting = true;
+        }
+        else 
+            Interacting = false;
     }
 
     public static void Bind(List<InteractableData> datas)

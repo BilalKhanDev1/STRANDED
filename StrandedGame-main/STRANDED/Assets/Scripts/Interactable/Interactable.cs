@@ -13,13 +13,15 @@ public class Interactable : MonoBehaviour
     public static event Action<bool> InteractablesInRangeChanged;
     public static event Action<Interactable, string> AnyInteractionComplete;
 
+    [SerializeField] InteractionType _interactionType;
     [SerializeField] float _timeToInteract = 3f;
-    [SerializeField, TextArea] string _completedInteractionText;
     [SerializeField] UnityEvent OnInteractionCompleted;
 
     InteractableData _data;
     public bool WasFullyInteracted => InteractionProgress >= 1;
     public float InteractionProgress => (_data?.TimeInteracted ?? 0f) / _timeToInteract;
+
+    public KeyCode Hotkey => _interactionType.Hotkey;
 
     public void Bind(InteractableData inspectableData)
     {
@@ -61,7 +63,7 @@ public class Interactable : MonoBehaviour
         _interactablesInRange.Remove(this);
         InteractablesInRangeChanged?.Invoke(_interactablesInRange.Any());
         OnInteractionCompleted?.Invoke();
-        AnyInteractionComplete?.Invoke(this, _completedInteractionText);
+        AnyInteractionComplete?.Invoke(this, _interactionType.CompletedInteraction);
     }
 
     public void RestoreInteractionState() => OnInteractionCompleted?.Invoke();
