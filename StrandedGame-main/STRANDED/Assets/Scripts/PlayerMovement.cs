@@ -6,20 +6,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _moveSpeed = 5f;
 
     Rigidbody _rigidbody;
-    float _mouseMovement;
+    float _mouseMovementX;
+    float _mouseMovementY;
 
     void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
-    void Update() => _mouseMovement += Input.GetAxis("Mouse X");
+    void Update()
+    {
+        if (ToggleablePanel.AnyVisible != true)
+        Cursor.lockState = CursorLockMode.Locked;
+        _mouseMovementX += Input.GetAxis("Mouse X");
+        _mouseMovementY -= Input.GetAxis("Mouse Y");
+    }
 
     void FixedUpdate()
     {
         if (ToggleablePanel.AnyVisible)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
             return;
 
-        transform.Rotate(0, _mouseMovement * Time.deltaTime * _turnSpeed, 0);
+        }
 
-        _mouseMovement = 0;
+        transform.Rotate(0, _mouseMovementX * Time.deltaTime * _turnSpeed, _mouseMovementY * Time.deltaTime);
+
+        _mouseMovementX = 0;
+        _mouseMovementY = 0;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");

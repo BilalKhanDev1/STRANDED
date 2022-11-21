@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4674d7b2600ca48b222d4fee4d558d, type: 3}
   m_Name: Wood
   m_EditorClassIdentifier: 
+  EquipmentSlotType: {fileID: 0}
   Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ModelName: 
   Description: wood wood
   MaxStackSize: 0
   PlaceablePrefab: {fileID: -8840021862807466640, guid: de677f64a8b77a1498cbf0cc99069ced, type: 3}
