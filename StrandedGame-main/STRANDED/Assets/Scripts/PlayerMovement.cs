@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody _rigidbody;
     float _mouseMovementX;
-    float _mouseMovementY;
 
     void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
@@ -16,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
         if (ToggleablePanel.AnyVisible != true)
         Cursor.lockState = CursorLockMode.Locked;
         _mouseMovementX += Input.GetAxis("Mouse X");
-        _mouseMovementY -= Input.GetAxis("Mouse Y");
     }
 
     void FixedUpdate()
@@ -28,10 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        transform.Rotate(0, _mouseMovementX * Time.deltaTime * _turnSpeed, _mouseMovementY * Time.deltaTime);
+        transform.Rotate(0, _mouseMovementX * Time.deltaTime * _turnSpeed, 0);
 
         _mouseMovementX = 0;
-        _mouseMovementY = 0;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
