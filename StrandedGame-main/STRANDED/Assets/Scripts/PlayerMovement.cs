@@ -1,5 +1,8 @@
+using Unity;
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
+using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool isMove { get; private set; } = true;
@@ -10,11 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Range(1, 10)] private float lookSpeedY = 2.0f;
     [SerializeField, Range(1, 180)] private float upperlookLimit = 80.0f;
     [SerializeField, Range(1, 180)] private float lowerlookLimit = 80.0f;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
 
-<<<<<<< Updated upstream
-    Rigidbody _rigidbody;
-    float _mouseMovement;
-=======
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float sprintSpeed = 6.0f;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool canUseHeadbob = true;
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
->>>>>>> Stashed changes
+
 
     [Header("Headbob")]
     [SerializeField] private float walkBobSpeed = 14f;
@@ -36,37 +36,34 @@ public class PlayerMovement : MonoBehaviour
     private float timer;
 
 
-   
-    Camera playerCamera;
+
     CharacterController characterController;
 
     private Vector3 moveDir;
     private Vector2 currInput;
-    
+
     float _mouseMovementX = 0;
-   
+
 
     void Awake()
     {
-        
-        playerCamera = GetComponentInChildren<Camera>();
-        characterController = GetComponent<CharacterController>();
-        defaultYpos = playerCamera.transform.localPosition.y;
-    }
-   
 
-<<<<<<< Updated upstream
-    void Update() => _mouseMovement += Input.GetAxis("Mouse X");
-=======
+        characterController = GetComponent<CharacterController>();
+        defaultYpos = virtualCamera.transform.localPosition.y;
+    }
+
     void Update()
     {
         if (ToggleablePanel.AnyVisible != true)
-        Cursor.lockState = CursorLockMode.Locked;
+        {
+            isMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         if (isMove)
         {
             MouseLook();
             Move();
-          
+
 
             if (Jumping)
                 Jump();
@@ -74,31 +71,24 @@ public class PlayerMovement : MonoBehaviour
             if (canUseHeadbob)
                 HeadBob();
         }
-        
+
     }
->>>>>>> Stashed changes
 
     void FixedUpdate()
     {
         if (ToggleablePanel.AnyVisible)
-            return;
-
-<<<<<<< Updated upstream
-        transform.Rotate(0, _mouseMovement * Time.deltaTime * _turnSpeed, 0);
-
-        _mouseMovement = 0;
-=======
+        {
+            isMove = false;
+            Cursor.lockState = CursorLockMode.Confined;
         }
-
     }
-
     private void MouseLook()
     {
         _mouseMovementX -= Input.GetAxis("Mouse Y") * lookSpeedY;
         _mouseMovementX = Mathf.Clamp(_mouseMovementX, -upperlookLimit, lowerlookLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(_mouseMovementX,0,0);
-        transform.rotation *= Quaternion.Euler(0,Input.GetAxis("Mouse X") *lookSpeedX,0);   
-        
+        virtualCamera.transform.localRotation = Quaternion.Euler(_mouseMovementX, 0, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeedX, 0);
+
     }
     private void Jump()
     {
@@ -108,13 +98,13 @@ public class PlayerMovement : MonoBehaviour
     private void HeadBob()
     {
         if (!characterController.isGrounded) return;
->>>>>>> Stashed changes
 
-        if (Mathf.Abs(moveDir.x)> 0.1f || Mathf.Abs(moveDir.z) > 0.1f)
+
+        if (Mathf.Abs(moveDir.x) > 0.1f || Mathf.Abs(moveDir.z) > 0.1f)
         {
-            timer += Time.deltaTime *  ( isSprinting ? sprintBobSpeed : walkBobSpeed);
-            playerCamera.transform.localPosition = new Vector3(
-                playerCamera.transform.localPosition.x, defaultYpos + Mathf.Sin(timer) * (isSprinting ? sprintBobValue : walkBobValue), playerCamera.transform.localPosition.z);
+            timer += Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed);
+            virtualCamera.transform.localPosition = new Vector3(
+                virtualCamera.transform.localPosition.x, defaultYpos + Mathf.Sin(timer) * (isSprinting ? sprintBobValue : walkBobValue), virtualCamera.transform.localPosition.z);
 
         }
     }
@@ -132,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
             moveDir.y -= gravity * Time.deltaTime;
         characterController.Move(moveDir * Time.deltaTime);
     }
-    
-
-    
 }
+
+
