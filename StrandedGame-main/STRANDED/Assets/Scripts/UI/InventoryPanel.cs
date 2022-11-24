@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class InventoryPanel : ToggleablePanel
+public class InventoryPanel : MonoBehaviour
 {
     void Start() => Bind(Inventory.Instance);
 
