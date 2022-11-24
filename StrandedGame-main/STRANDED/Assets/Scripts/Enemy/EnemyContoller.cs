@@ -8,12 +8,18 @@ public class EnemyContoller : MonoBehaviour
     [SerializeField] private float stoppingDistance = 3;
 
     private float timeOfLastAttack = 0;
+    private float attackRange = 5;
     private bool hasStopped = false;
 
     private NavMeshAgent agent = null;
     private EnemyStats stats = null;
+    [SerializeField]private Transform player;
     [SerializeField] private Transform target;
 
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         GetReferences();
@@ -21,7 +27,11 @@ public class EnemyContoller : MonoBehaviour
 
     private void Update()
     {
-        MoveToTarget();
+        if (Vector2.Distance(transform.position, player.position) < attackRange)
+        {
+            MoveToTarget();
+        }
+           
         
     }
     private void MoveToTarget()
@@ -76,5 +86,6 @@ public class EnemyContoller : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         stats = GetComponent<EnemyStats>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
