@@ -15,5 +15,5 @@ MonoBehaviour:
   Hotkey: 101
   BeforeInteraction: Collect
   DuringInteraction: Collecting
-  CompletedInteraction: You got 2 wood!
+  CompletedInteraction: You got wood!
   IsDefault: 0
