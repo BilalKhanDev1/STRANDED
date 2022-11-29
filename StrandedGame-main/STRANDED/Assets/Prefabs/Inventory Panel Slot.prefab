@@ -112,6 +112,7 @@ MonoBehaviour:
   _outline: {fileID: 5241292276573828512}
   _draggingColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   _stackCountText: {fileID: 5241292276923710364}
+  _equipmentSlotType: {fileID: 0}
 --- !u!1 &5241292276753154782
 GameObject:
   m_ObjectHideFlags: 0
