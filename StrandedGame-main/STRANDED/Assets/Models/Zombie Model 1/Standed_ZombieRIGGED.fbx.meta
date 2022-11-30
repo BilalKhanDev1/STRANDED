@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 828a90b3a7edbf74884b1ba26c2244d3
+guid: 56bb05f135aeb3a46b6e445c96a9799f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: bdc764566cee7a645b3abbd10c0dd381, type: 2}
+      name: cloth
+    second: {fileID: 2100000, guid: 97e65a7c5dfa5c341942ad6b51523f29, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 455e4035969bdae4d9202db8f269e26b, type: 2}
+      name: eyes
+    second: {fileID: 2100000, guid: bc04fa67145881f44a499e5f1499be93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skin
+    second: {fileID: 2100000, guid: 8592d6c291aab5242aa563d39c8cbe97, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
