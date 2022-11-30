@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4674d7b2600ca48b222d4fee4d558d, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  EquipmentSlotType: {fileID: 11400000, guid: b8f31d3d4d09a814a8bfffc785f9fd01, type: 2}
-  Icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  ModelName: Cylinder2
-  Description: random stone woo
+  EquipmentSlotType: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 0201dae9c25a87544b6c344fe01d0793, type: 3}
+  ModelName: 
+  Description: Use this stone for crafting items!
   MaxStackSize: 0
   PlaceablePrefab: {fileID: 0}

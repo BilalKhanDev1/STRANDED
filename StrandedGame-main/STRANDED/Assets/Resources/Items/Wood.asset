@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   EquipmentSlotType: {fileID: 0}
-  Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  Icon: {fileID: 21300000, guid: 72b5ffcf94e46bd40ae9b52e61932584, type: 3}
   ModelName: 
-  Description: wood wood
+  Description: Use this wood for crafting items!
   MaxStackSize: 0
-  PlaceablePrefab: {fileID: -8840021862807466640, guid: de677f64a8b77a1498cbf0cc99069ced, type: 3}
+  PlaceablePrefab: {fileID: 0}
