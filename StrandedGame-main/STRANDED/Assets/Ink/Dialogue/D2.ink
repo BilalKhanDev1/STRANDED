@@ -1,6 +1,8 @@
-Nice work! As you were gathering wood, I figured out how we can set up a camp for the night.
-* What else do I need?
-I got some stone I can give you, aswell as instructions on how to craft. #E.GiveRecipe
-** Oh wow, thanks
-Craft a campfire and then place it so we can get ready for the night!
-*** On it!
+Nice work! As you were gathering wood, I found out this place may be dangerous...
+* Dangerous?
+Yeah, we need to make things that'll defend ourselves. Let's try making a club.
+** What do I need?
+I got a recipe on how to craft one that I can give you, however you'd need stone. #E.GiveRecipe
+*** Oh wow, thanks
+Look for the stone, and then come back here so we can try crafting a weapon!
+**** On it! #E.ShowCraftingTip

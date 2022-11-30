@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9552313390d97314391d4013546b01ea, type: 3}
-  m_Name: WoodtoStone
+  m_Script: {fileID: 11500000, guid: 91cc02fa4452dc84294089a0c767d765, type: 3}
+  m_Name: Stone
   m_EditorClassIdentifier: 
-  Ingrediants:
-  - {fileID: 11400000, guid: 717b785173323d64886671dee6928192, type: 2}
-  Rewards:
-  - {fileID: 11400000, guid: 75badee2feb5b074a934f7b0cb2188c8, type: 2}
+  Hotkey: 101
+  BeforeInteraction: Collect
+  DuringInteraction: Collecting
+  CompletedInteraction: You got stone!
+  IsDefault: 0
