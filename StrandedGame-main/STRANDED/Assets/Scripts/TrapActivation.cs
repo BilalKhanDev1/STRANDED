@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapActivation : MonoBehaviour
 {
+    public float timeStop;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,13 @@ public class TrapActivation : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("enemy"))
+        {
+           
+        }
     }
 }
