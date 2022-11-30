@@ -1,7 +1,5 @@
-using Unity;
+using UnityEngine.Events;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Range(1, 180)] private float upperlookLimit = 80.0f;
     [SerializeField, Range(1, 180)] private float lowerlookLimit = 80.0f;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
+    int _clickCount = 0;
+    public UnityEvent ShowPanel;
 
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
@@ -72,6 +72,12 @@ public class PlayerMovement : MonoBehaviour
                 HeadBob();
         }
 
+        if (Input.GetKey(KeyCode.C) && _clickCount == 0)
+        {
+            ShowPanel.Invoke();
+            _clickCount++;
+        }
+
     }
 
     void FixedUpdate()
@@ -123,5 +129,4 @@ public class PlayerMovement : MonoBehaviour
         characterController.Move(moveDir * Time.deltaTime);
     }
 }
-
-
+    

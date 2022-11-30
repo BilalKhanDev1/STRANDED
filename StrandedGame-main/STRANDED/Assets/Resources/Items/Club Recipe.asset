@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b4674d7b2600ca48b222d4fee4d558d, type: 3}
-  m_Name: Campfire
+  m_Name: Club Recipe
   m_EditorClassIdentifier: 
   EquipmentSlotType: {fileID: 0}
-  Icon: {fileID: 21300000, guid: affeade9874cf2347abb155e8d0db4d8, type: 3}
+  Icon: {fileID: 21300000, guid: b09792a0ea016b0458e3b0fa342c6c91, type: 3}
   ModelName: 
-  Description: 
+  Description: These are the specific instructions to build a club!
   MaxStackSize: 0
-  PlaceablePrefab: {fileID: -6314417035130358246, guid: 2734643a04da0b048a0be3847be02daf, type: 3}
+  PlaceablePrefab: {fileID: 0}
