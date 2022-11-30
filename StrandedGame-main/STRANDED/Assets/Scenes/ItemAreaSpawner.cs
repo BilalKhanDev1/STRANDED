@@ -5,11 +5,11 @@ using UnityEngine;
 public class ItemAreaSpawner : MonoBehaviour
 {
     public GameObject itemToSpread;
-    public int numItemsToSpawn = 10;
+    public int numItemsToSpawn = 50;
 
-    public float itemXSpread = 10;
+    public float itemXSpread = 150;
     public float itemYSpread = 0;
-    public float itemZSpread = 10;
+    public float itemZSpread = 150;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,14 @@ public class ItemAreaSpawner : MonoBehaviour
             SpreadItem();
         }
     }
+    private void Update()
+    {
+        if (numItemsToSpawn < 50)
+        {
+            SpreadItem();
+        }
+    }
+
 
     void SpreadItem()
     {
