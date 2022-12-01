@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] protected float health;
-    [SerializeField] protected float maxHealth;
+    [SerializeField] protected int health;
+    [SerializeField] protected int maxHealth;
 
     [SerializeField] protected bool isDead;
 
@@ -32,15 +32,15 @@ public class CharacterStats : MonoBehaviour
         isDead = true;
     }
 
-    public void SetHealthTo(float healthToSetTo)
+    public void SetHealthTo(int healthToSetTo)
     {
         health = healthToSetTo;
         CheckHealth();
     }
 
-    public virtual void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        float healthAfterDamage = health - damage;
+        int healthAfterDamage = health - damage;
         SetHealthTo(healthAfterDamage);
     }
 
