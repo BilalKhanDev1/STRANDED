@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5b2f7d4e47d44c479d403e5a388d379
+guid: 3b8b990fe43eb7c49a19e34ff7306fb6
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: body
-    second: {fileID: 2100000, guid: d284dc0d8ce671c459640691eefc8184, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: helmet
-    second: {fileID: 2100000, guid: a2c4605dbd2b71643acf72353471ae9c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: helmetEye
-    second: {fileID: 2100000, guid: 93064f6e5c477254392b6110a7a20075, type: 2}
+      name: base
+    second: {fileID: 2100000, guid: 511dd048061a20943beb17d2f65c90d8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
