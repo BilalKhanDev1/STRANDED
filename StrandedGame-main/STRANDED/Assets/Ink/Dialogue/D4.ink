@@ -4,3 +4,5 @@ Try crafting a trap, I'll give you the recipe and some resources to do so. #E.Gi
 ** Alright, i'll give it a shot.
 This trap should be able to freeze enemies if you place it down and it catches the enemy.
 *** Thanks!
+The night is approaching, good luck!
+**** Alright...
