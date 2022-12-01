@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            enemy.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 }

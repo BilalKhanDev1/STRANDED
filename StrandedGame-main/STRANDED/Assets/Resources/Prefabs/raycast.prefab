@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemstoPickFrom:
-  - {fileID: 6903645111099767914, guid: 15a60c234d5004d4a95c2b8e922ea1ac, type: 3}
+  - {fileID: 9085710924013638135, guid: 15a60c234d5004d4a95c2b8e922ea1ac, type: 3}
   raycastDistance: 100
   overlapTestBoxSize: 1
   spawnedObjectLayer:
