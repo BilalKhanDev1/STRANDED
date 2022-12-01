@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     public GameObject Club;
+    public GameObject enemy;
     bool canSwing = true;
 
     void Update()
@@ -21,5 +22,13 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         Club.GetComponent<Animator>().Play("New State");
         canSwing = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            enemy.SetActive(false);
+        }
     }
 }

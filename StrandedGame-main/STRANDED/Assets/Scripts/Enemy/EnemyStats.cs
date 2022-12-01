@@ -18,7 +18,6 @@ public class EnemyStats : CharacterStats
 
     private void Update()
     {
-        
         Debug.Log("Enemy Health is: " + health);
     }
 
@@ -41,6 +40,5 @@ public class EnemyStats : CharacterStats
         damage = 10;
         attackSpeed = 1.5f;
         canAttack = true;
-
     }
 }
