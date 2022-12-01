@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera virtualCamera;
     int _clickCount = 0;
     public UnityEvent ShowPanel;
+    public Transform position;
 
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
