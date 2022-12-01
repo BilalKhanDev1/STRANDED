@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b4674d7b2600ca48b222d4fee4d558d, type: 3}
-  m_Name: Club Recipe
+  m_Name: Twine
   m_EditorClassIdentifier: 
   EquipmentSlotType: {fileID: 0}
-  Icon: {fileID: 21300000, guid: b09792a0ea016b0458e3b0fa342c6c91, type: 3}
+  Icon: {fileID: 21300000, guid: 20e21c11494364e4d86990c579286e12, type: 3}
   ModelName: 
-  Description: These are the specific instructions to build a club! Follow the specific
-    order!
+  Description: Use this twine for crafting items
   MaxStackSize: 0
   PlaceablePrefab: {fileID: 0}
