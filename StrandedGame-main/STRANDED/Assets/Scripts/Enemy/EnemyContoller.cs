@@ -14,6 +14,24 @@ public class EnemyContoller : MonoBehaviour
     private EnemyStats stats = null;
     [SerializeField] private Transform target;
 
+<<<<<<< Updated upstream
+=======
+
+    public float movementspeed = 8f;
+    public float rotateSpeed = 100f;
+
+    public bool isMoving = true;
+    private bool isWandering = false;
+    public bool isRotatingLeft = false;
+    public bool isRotatingRight = false;
+    public bool isWalking = false;
+
+    Rigidbody rb;
+    private void Awake()
+    {
+        
+    }
+>>>>>>> Stashed changes
     private void Start()
     {
         GetReferences();
@@ -21,7 +39,33 @@ public class EnemyContoller : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         MoveToTarget();
+=======
+        if(isMoving)
+        {
+            if (isWandering == false)
+            {
+                StartCoroutine(Wander());
+            }
+            if (isRotatingLeft == true)
+            {
+                transform.Rotate(transform.up * Time.deltaTime * rotateSpeed);
+            }
+            if (isRotatingRight == true)
+            {
+                transform.Rotate(transform.up * Time.deltaTime * -rotateSpeed);
+            }
+            if (isWalking == true)
+            {
+                rb.AddForce(transform.forward * movementspeed);
+            }
+            if (Vector2.Distance(transform.position, player.position) < attackRange)
+            {
+                MoveToTarget();
+            }
+        }
+>>>>>>> Stashed changes
         
     }
     private void MoveToTarget()
