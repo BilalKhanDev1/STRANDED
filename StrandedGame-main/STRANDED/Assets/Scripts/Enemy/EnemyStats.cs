@@ -27,6 +27,7 @@ public class EnemyStats : CharacterStats
     }
     public override void Die()
     {
+        FindObjectOfType<AudioManager>().Play("Hit");
         base.Die();
         Destroy(gameObject);
     }

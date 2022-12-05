@@ -128,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
         if (!characterController.isGrounded)
             moveDir.y -= gravity * Time.deltaTime;
         characterController.Move(moveDir * Time.deltaTime);
+
+        FindObjectOfType<AudioManager>().Play("Footsteps");
     }
 }
     

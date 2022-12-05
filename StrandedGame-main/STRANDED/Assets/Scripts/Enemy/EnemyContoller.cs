@@ -13,7 +13,7 @@ public class EnemyContoller : MonoBehaviour
 
     private NavMeshAgent agent = null;
     private EnemyStats stats = null;
-    [SerializeField]private Transform player;
+    [SerializeField] private Transform player;
     [SerializeField] private Transform target;
 
 
@@ -106,6 +106,7 @@ public class EnemyContoller : MonoBehaviour
     private void AttackTarget(CharacterStats statsToDamage)
     {
         stats.DealDamage(statsToDamage);
+        FindObjectOfType<AudioManager>().Play("EnemyHit");
     }
 
     IEnumerator Wander()
