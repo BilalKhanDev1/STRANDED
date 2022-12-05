@@ -1,6 +1,9 @@
 using UnityEngine.Events;
 using UnityEngine;
 using Cinemachine;
+using JetBrains.Annotations;
+using System.Collections;
+
 public class PlayerMovement : MonoBehaviour
 {
     public bool isMove { get; private set; } = true;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool Sprinting = true;
     [SerializeField] private bool Jumping = true;
     [SerializeField] private bool canUseHeadbob = true;
+    [SerializeField] private bool canUseFootsteps = true;
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
 
@@ -37,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
     private float timer;
 
 
+    [Header("Footsteps")]
+    [SerializeField] float baseStepSpeed = 0.5f;
+    [SerializeField] float sprintStepMultiplier = 0.6f;
+    [SerializeField] AudioSource stepSource = default;
+    [SerializeField] AudioClip steps = default;
+    float footstepTimer = 0;
+    float GetCurrentOffset => isSprinting ? baseStepSpeed * sprintStepMultiplier : baseStepSpeed;
 
     CharacterController characterController;
 
@@ -45,10 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     float _mouseMovementX = 0;
 
-
     void Awake()
     {
-
         characterController = GetComponent<CharacterController>();
         defaultYpos = virtualCamera.transform.localPosition.y;
     }
@@ -71,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
 
             if (canUseHeadbob)
                 HeadBob();
+
+            if (canUseFootsteps)
+            {
+                Footsteps();
+            }
         }
 
         if (Input.GetKey(KeyCode.C) && _clickCount == 0)
@@ -106,13 +120,28 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!characterController.isGrounded) return;
 
-
         if (Mathf.Abs(moveDir.x) > 0.1f || Mathf.Abs(moveDir.z) > 0.1f)
         {
             timer += Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed);
             virtualCamera.transform.localPosition = new Vector3(
                 virtualCamera.transform.localPosition.x, defaultYpos + Mathf.Sin(timer) * (isSprinting ? sprintBobValue : walkBobValue), virtualCamera.transform.localPosition.z);
+        }
+    }
 
+    private void Footsteps()
+    {
+        if (!characterController.isGrounded) return;
+        if (currInput == Vector2.zero) return;
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0) {
+            if (Physics.Raycast(virtualCamera.transform.position, Vector3.down, out RaycastHit hit, 3))
+                switch (hit.collider.tag) {
+                    case "Grass":
+                    stepSource.PlayOneShot(steps);
+                    break;
+                }
+            footstepTimer = GetCurrentOffset;        
         }
     }
     private void Move()

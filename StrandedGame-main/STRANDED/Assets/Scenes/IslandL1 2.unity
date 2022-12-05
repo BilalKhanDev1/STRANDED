@@ -7855,7 +7855,7 @@ GameObject:
   - component: {fileID: 938687386}
   m_Layer: 6
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7940,9 +7940,17 @@ PrefabInstance:
       value: 20.63
       objectReference: {fileID: 0}
     - target: {fileID: 9098701926705651864, guid: 843e68de8a4a0d3438fda0d28c3c4944, type: 3}
+      propertyPath: steps
+      value: 
+      objectReference: {fileID: 8300000, guid: b0723da7114fe5f43907e594f1d004ba, type: 3}
+    - target: {fileID: 9098701926705651864, guid: 843e68de8a4a0d3438fda0d28c3c4944, type: 3}
       propertyPath: _panel
       value: 
       objectReference: {fileID: 2079348631}
+    - target: {fileID: 9098701926705651864, guid: 843e68de8a4a0d3438fda0d28c3c4944, type: 3}
+      propertyPath: stepSource
+      value: 
+      objectReference: {fileID: 1487826308}
     - target: {fileID: 9098701926705651864, guid: 843e68de8a4a0d3438fda0d28c3c4944, type: 3}
       propertyPath: ShowPanel.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -14622,11 +14630,6 @@ MonoBehaviour:
   sounds:
   - name: Ambience
     clip: {fileID: 8300000, guid: 5e609d9a63a3a7c44ba90b5cc251cdf6, type: 3}
-    source: {fileID: 0}
-    volume: 0.096
-    loop: 1
-  - name: Footsteps
-    clip: {fileID: 8300000, guid: 04da37986b0f64148b2581dd3b5fee1f, type: 3}
     source: {fileID: 0}
     volume: 0.096
     loop: 1
