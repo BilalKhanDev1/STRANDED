@@ -25,8 +25,9 @@ public class InteractionManager : MonoBehaviour
 
     void Update()
     {
-        if (_currentInteractable != null && Input.GetKey(_currentInteractable.InteractionType.Hotkey))
+        if (_currentInteractable != null && (Input.GetKey(_currentInteractable.InteractionType.Hotkey)))
         {
+            FindObjectOfType<AudioManager>().Play("Collect");
             _currentInteractable.Interact();
             Interacting = true;
         }
