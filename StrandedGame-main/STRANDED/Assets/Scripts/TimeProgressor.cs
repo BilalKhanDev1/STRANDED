@@ -90,4 +90,7 @@ public class TimeProgressor : MonoBehaviour
 
         timeOfDay %= 24;
     }
+
+    public void ChangeTime() => timeOfDay = 18.9f;
+
 }

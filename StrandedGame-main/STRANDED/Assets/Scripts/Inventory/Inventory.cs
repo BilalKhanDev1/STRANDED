@@ -18,8 +18,10 @@ public class Inventory : MonoBehaviour
 
     public static Inventory Instance { get; private set; }
 
+#if UNITY_EDITOR
     void OnValidate() => _allEquipmentSlotTypes = Extensions.GetAllInstances<EquipmentSlotType>();
-    
+#endif
+
     void Awake()
     {
         Instance = this;

@@ -36,5 +36,7 @@ public class CraftingManager : MonoBehaviour
         return true;
     }
 
+#if UNITY_EDITOR
     void OnValidate() => _recipes = Extensions.GetAllInstances<Recipe>();
+#endif
 }
