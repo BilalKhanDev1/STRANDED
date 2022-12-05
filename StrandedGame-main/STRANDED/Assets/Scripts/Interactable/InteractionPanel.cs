@@ -65,7 +65,8 @@ public class InteractionPanel : MonoBehaviour
             _progressBarFilledImage.fillAmount = InteractionManager.InteractionProgress;
             _progressBar.SetActive(true);
         }
-        else if (_progressBar.activeSelf)
-            _progressBar.SetActive(false);
+        else if (_progressBar.activeSelf) { 
+        _progressBar.SetActive(false);
+    }
     }
 }

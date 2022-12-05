@@ -15,7 +15,10 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && canSwing == true)
+        {
             StartCoroutine(SwordSwing());
+            FindObjectOfType<AudioManager>().Play("Attack");
+        }
     }
 
     IEnumerator SwordSwing()
